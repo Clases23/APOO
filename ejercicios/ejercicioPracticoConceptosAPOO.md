@@ -42,8 +42,9 @@
    5. Llamar `tab.mostrar_tareas()` para ver estados iniciales.
    6. Ejecutar `tab.mover_tarea("Implementar backend", "En progreso")`.
    7. Volver a llamar `tab.mostrar_tareas()` y comprobar que el estado ha cambiado.
-  
 
-   ![Diagrama UML Lista_reproduccion](imagenes/diagrama_de_clases_TODO.drawio.png)
+  ## Diagrama de clases.
+
+   ![Diagrama UML Lista_reproduccion](../imagenes/diagrama_de_clases_tablero_kanban.drawio.png)
 
 ---
