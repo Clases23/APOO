@@ -44,6 +44,47 @@ Modela la clase `Circulo` en Python con:
 
 ```python
 # --- Implementa aquí la clase Circulo ---
+class Circulo:
+    #Atributos de clase
+    PI: float = 3.14159265359
+
+    def __init__(self, radio: float):
+        #Atriutos de instancia
+        self.radio = radio
+    
+    def calcular_area(self) -> float|None:
+        """
+        1. Valida que el radio sea mayor que cero con _validar_radio().
+            - Si no es valido devuelve un None.
+            - Si es valido procede a calcular el area.
+        2. Una vez calculada el area formatea el resultado y lo pone con 2 numeros decimales
+        """
+        if not self._validar_radio():
+            return None
+        else:
+            area = (self.radio**2) * Circulo.PI
+        return self.__formatear(area)
+
+    """Metodo protegido que se encarga de validad que el radio sea mayor que cero"""
+    def _validar_radio(self) -> bool:
+        if self.radio > 0:
+            return True
+        else: 
+            return False
+    
+    """Metodo privado que se encarga de formatear el resultado del calculo del area"""
+    def __formatear(self, valor: float) -> float:
+        return round(valor,2)
+    
+    """Metodo estatico que se encarga de convertir de grados a radianes"""
+    @staticmethod
+    def convertir_grados_a_radianes(grados: float) -> float:
+        return grados * (Circulo.PI/180)
+    
+    """Metodo de clase que se encarga de crear siempre un circulo unitario"""
+    @classmethod
+    def circulo_unitario(cls) -> "Circulo":
+        return cls(1.0)
 
 # --- Pruebas de uso para Circulo ---
 c1 = Circulo(5)
