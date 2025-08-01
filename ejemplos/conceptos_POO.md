@@ -18,7 +18,7 @@ Modela la clase `Circulo` en Python con:
 
 1. **Atributo de clase**
 
-   * `pi: float` con el valor de π.
+   * `PI: float` con el valor de π.
 2. **Constructor** (`__init__`)
 
    * Parámetro `radio: float` → `self.radio`.
@@ -105,7 +105,7 @@ Crea la clase `ConversorTemperatura` para convertir entre Celsius, Fahrenheit y 
 
 1. **Atributo de clase**
 
-   * `escala_base: str = "Celsius"`.
+   * `EESCALA_BASE: str = "Celsius"`.
 2. **Constructor** (`__init__`)
 
    * Parámetro `valor_c: float` → `self.valor_c`.
@@ -132,6 +132,46 @@ Crea la clase `ConversorTemperatura` para convertir entre Celsius, Fahrenheit y 
 ```python
 # --- Implementa aquí la clase ConversorTemperatura ---
 
+class ConversorTemperatura:
+    # Atributo de clase
+    ESCALA_BASE: str = "Celsius"
+
+    def __init__(self, valor_c: float):
+        # Atributo de instancia
+        self.valor_c: float = valor_c
+
+    def a_fahrenheit(self) -> float | None:
+        """
+        - Valida valor_c >= -273.15 con _validar_valor().
+        - Si es válido, convierte C→F, formatea con __formatear().
+        - Si no, imprime mensaje y devuelve None.
+        """
+        if not self._validar_valor():
+            return None
+        farenheit = (self.valor_c * 9/5) + 32
+        return self.__formatear(farenheit)
+
+    def _validar_valor(self) -> bool:
+        """Método protegido: comprueba que no esté por debajo del cero absoluto."""
+        if self.valor_c < -273.15:
+            print("Error: temperatura por debajo del cero absoluto.")
+            return False
+        return True
+
+    def __formatear(self, temp: float) -> float:
+        """Método privado: redondea a 1 decimal."""
+        return round(temp, 1)
+
+    @staticmethod
+    def celsius_a_kelvin(celsius: float) -> float:
+        """Convierte Celsius a Kelvin (K = C + 273.15)."""
+        return celsius + 273.15
+
+    @classmethod
+    def desde_fahrenheit(cls, fh: float) -> "ConversorTemperatura":
+        """Crea instancia a partir de un valor en Fahrenheit."""
+        celsius = (fh - 32) * 5/9
+        return cls(celsius)
 # --- Pruebas de uso para ConversorTemperatura ---
 tc1 = ConversorTemperatura(25)
 print("25 °C →", tc1.a_fahrenheit(), "°F")       # → 77.0
