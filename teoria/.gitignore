@@ -1,0 +1,60 @@
+# --- Python básico ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# --- Distribución / empaquetado ---
+build/
+dist/
+wheels/
+*.egg-info/
+.eggs/
+MANIFEST
+
+# --- Dependencias generadas por instaladores ---
+pip-wheel-metadata/
+pip-log.txt
+
+# --- Entornos virtuales ---
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# --- Pruebas / Cobertura ---
+.pytest_cache/
+.tox/
+.nox/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+.hypothesis/
+
+# --- Tipado / linters / caches ---
+.mypy_cache/
+.pytype/
+.pyre/
+.ruff_cache/
+
+# --- Jupyter/IPython ---
+.ipynb_checkpoints
+profile_default/
+ipython_config.py
+
+# --- IDEs / Editores ---
+.idea/
+*.iml
+.vscode/
+
+# --- Archivos de sistema (OS) ---
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# --- Logs temporales ---
+*.log
+logs/
